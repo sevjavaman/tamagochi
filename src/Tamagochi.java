@@ -92,6 +92,7 @@ f.add(b4);
 c.gridx = 5;
 c.gridy = 1;
 JButton b5 = new JButton("Охотиться");
+b5.addActionListener(new HunterButtonListener());
 gbl.setConstraints(b5,c);
 f.add(b5);
 
@@ -122,8 +123,12 @@ f.add(b6);
 		case 4:
 			ImageIcon i4 = new ImageIcon(getClass().getResource("img/books-icon.png"));
 			Image img4=i4.getImage();
-			g.drawImage(img4, getWidth()/2-50, getHeight()/2-50, 50, 50, null);
+			g.drawImage(img4, 200, 150, 50, 50, null);
 			break;
+		case 5:
+			ImageIcon i5 = new ImageIcon(getClass().getResource("img/mouse.png"));
+			Image img5=i5.getImage();
+			g.drawImage(img5, 150, 250, 25, 25, null);
 		}
 
 		}
@@ -131,12 +136,22 @@ f.add(b6);
 	//слушатель кнопки "Читать"
 	class B4Listener implements ActionListener{
 
-		@Override
+		
 		public void actionPerformed(ActionEvent arg0) {
 			action=4;
 			repaint();
 		}
 		
 	}
+	//слушатель кнопки "Читать"
+		class HunterButtonListener implements ActionListener{
+
+			
+			public void actionPerformed(ActionEvent arg0) {
+				action=5;
+				repaint();
+			}
+			
+		}
 
 }
