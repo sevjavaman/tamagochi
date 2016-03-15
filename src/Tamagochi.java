@@ -73,6 +73,7 @@ public class Tamagochi extends JPanel {
 		c.gridx = 0;
 		c.gridy = 1;
 		JButton b2 = new JButton("Туалет");
+		b2.addActionListener(new B2Listener());
 		gbl.setConstraints(b2, c);
 		f.add(b2);
 
@@ -99,6 +100,7 @@ public class Tamagochi extends JPanel {
 		c.gridx = 5;
 		c.gridy = 1;
 		JButton b5 = new JButton("Охотиться");
+		b5.addActionListener(new HunterButtonListener());
 		gbl.setConstraints(b5, c);
 		f.add(b5);
 
@@ -107,8 +109,7 @@ public class Tamagochi extends JPanel {
 		JButton b6 = new JButton("Праздновать");
 		gbl.setConstraints(b6, c);
 		f.add(b6);
-		
-		
+
 		c.gridx = 5;
 		c.gridy = 3;
 		JButton b8 = new JButton("Праздновать");
@@ -145,7 +146,16 @@ public class Tamagochi extends JPanel {
 		case 7:
 			g.setColor(Color.BLACK);
 			g.drawString("ГАВ_ГАВ", getWidth() / 2 - 50, getHeight() / 2 - 50);
+
 			break;
+		case 5:
+			ImageIcon i5 = new ImageIcon(getClass().getResource("img/mouse.png"));
+			Image img5=i5.getImage();
+			g.drawImage(img5, 150, 250, 25, 25, null);
+		case 2:
+			ImageIcon i2 = new ImageIcon(getClass().getResource("img/toilet.png"));
+			Image img2=i2.getImage();
+			g.drawImage(img2, 200, 150, 50, 50, null);	
 		}
 
 	}
@@ -153,7 +163,6 @@ public class Tamagochi extends JPanel {
 	// слушатель кнопки "Читать"
 	class B4Listener implements ActionListener {
 
-		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			action = 4;
 			repaint();
@@ -172,4 +181,32 @@ public class Tamagochi extends JPanel {
 
 	}
 
+	// слушатель кнопки "Читать"
+	class HunterButtonListener implements ActionListener {
+
+		public void actionPerformed(ActionEvent arg0) {
+			action = 5;
+			repaint();
+		}
+
+	}
+
+	class B2Listener implements ActionListener {
+
+		public void actionPerformed(ActionEvent arg0) {
+			action = 2;
+			repaint();
+		}
+
+	}
+
+	// слушатель кнопки "Читать"
+	class TButtonListener implements ActionListener {
+
+		public void actionPerformed(ActionEvent arg0) {
+			action = 5;
+			repaint();
+		}
+
+	}
 }
