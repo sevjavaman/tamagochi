@@ -73,7 +73,8 @@ public class Tamagochi extends JPanel{
 		c.gridx = 0;
 		c.gridy = 1;
 		JButton b2 = new JButton("Туалет");
-gbl.setConstraints(b2,c);
+		b2.addActionListener(new B2Listener());
+		gbl.setConstraints(b2,c);
 f.add(b2);
 
 c.gridx = 0;
@@ -129,6 +130,10 @@ f.add(b6);
 			ImageIcon i5 = new ImageIcon(getClass().getResource("img/mouse.png"));
 			Image img5=i5.getImage();
 			g.drawImage(img5, 150, 250, 25, 25, null);
+		case 2:
+			ImageIcon i2 = new ImageIcon(getClass().getResource("img/toilet.png"));
+			Image img2=i2.getImage();
+			g.drawImage(img2, 200, 150, 50, 50, null);	
 		}
 
 		}
@@ -153,5 +158,23 @@ f.add(b6);
 			}
 			
 		}
+		class B2Listener implements ActionListener{
 
+			
+			public void actionPerformed(ActionEvent arg0) {
+				action=2;
+				repaint();
+			}
+			
+		}
+		//слушатель кнопки "Читать"
+			class TButtonListener implements ActionListener{
+
+				
+				public void actionPerformed(ActionEvent arg0) {
+					action=5;
+					repaint();
+				}
+				
+			}
 }
