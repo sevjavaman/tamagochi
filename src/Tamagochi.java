@@ -107,14 +107,16 @@ public class Tamagochi extends JPanel {
 		c.gridx = 5;
 		c.gridy = 2;
 		JButton b6 = new JButton("Праздновать");
+		b6.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				action = 6;
+				repaint();
+			}
+		});
 		gbl.setConstraints(b6, c);
 		f.add(b6);
-
-		c.gridx = 5;
-		c.gridy = 3;
-		JButton b8 = new JButton("Праздновать");
-		gbl.setConstraints(b8, c);
-		f.add(b8);
 
 		c.gridx = 0;
 		c.gridy = 5;
@@ -135,6 +137,13 @@ public class Tamagochi extends JPanel {
 
 		// какая кнопка была нажата
 		switch (action) {
+		case 6:
+			ImageIcon i6 = new ImageIcon(getClass().getResource(
+					"img/cake-icon.png"));
+			Image img6 = i6.getImage();
+			g.drawImage(img6, getWidth() / 2 - 50, getHeight() / 2 - 50, 50,
+					50, null);
+			break;
 		case 4:
 			ImageIcon i4 = new ImageIcon(getClass().getResource(
 					"img/books-icon.png"));
