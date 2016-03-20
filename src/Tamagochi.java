@@ -67,6 +67,7 @@ public class Tamagochi extends JPanel {
 		c.gridwidth = 1;
 		c.gridheight = 1;
 		JButton b1 = new JButton("Играть");
+		b1.addActionListener(new B1Listener());
 		gbl.setConstraints(b1, c);
 		f.add(b1);
 
@@ -161,14 +162,34 @@ public class Tamagochi extends JPanel {
 			ImageIcon i5 = new ImageIcon(getClass().getResource("img/mouse.png"));
 			Image img5=i5.getImage();
 			g.drawImage(img5, 150, 250, 25, 25, null);
+			break;
 		case 2:
 			ImageIcon i2 = new ImageIcon(getClass().getResource("img/toilet.png"));
 			Image img2=i2.getImage();
 			g.drawImage(img2, 200, 150, 50, 50, null);	
+			break;
+		case 1:
+			ImageIcon i11 = new ImageIcon(getClass().getResource("/img/play.png"));
+			Image ing1 = i11.getImage();
+			g.drawImage(ing1, 100, 150, 50, 50, null);
+			break;
 		}
 
 	}
 
+	//слушатель кнопки Играть
+	class B1Listener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent ee) {
+			
+			action = 1;
+			repaint();
+			
+		}
+		
+	}
+	
 	// слушатель кнопки "Читать"
 	class B4Listener implements ActionListener {
 
